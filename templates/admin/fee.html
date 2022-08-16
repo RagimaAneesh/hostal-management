@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+{% extends 'Modified_files/dash.html' %}
+{% block content %}
+{% load crispy_forms_filters %}
+<div class="col-lg-12 grid-margin stretch-card">
+                <div class="card">
+                  <div class="card-body">
+                    <h4 class="card-title">Fee Details</h4>
+
+                    <div class="table-responsive">
+                      <table class="table table-striped">
+                        <thead>
+                          <tr>
+                            <th> sl_no </th>
+                              <th>particulers</th>
+                            <th> amount_in_rs </th>
+                              <th >Action</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                        {% for m in data %}
+                        <tr>
+                            <td>{{ m.sl_no}}</td>
+                            <td>{{ m.particulers}}</td>
+                            <td>{{ m.amount_in_rs}}</td>
+                            <td><a href="#">
+                                <button type="button" class="btn btn-danger">Delete</button></td>
+                        </tr>
+                        {% endfor %}
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                </div>
+              </div>
+{% endblock %}
+

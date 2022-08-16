@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+{% extends 'Modified_files/dashtheme.html' %}
+{% block content %}
+{% load crispy_forms_filters %}
+<div class="col-lg-12 grid-margin stretch-card">
+                <div class="card">
+                  <div class="card-body">
+                    <h4 class="card-title">STUDENT</h4>
+
+                    <div class="table-responsive">
+                      <table class="table table-striped">
+                        <thead>
+                          <tr>
+                            <th> Name </th>
+                              <th>Phone no</th>
+                            <th> Address </th>
+                            <th> Email </th>
+                              <th >Action</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                        {% for m in data %}
+                        <tr>
+                            <td>{{ m.name}}</td>
+                            <td>{{ m.phone_no}}</td>
+                            <td>{{ m.address}}</td>
+                            <td>{{m.email }}</td>
+
+<!--                             <td><a href="{% url 'studentu' m.id %}">-->
+<!--                               <button type ='button' class = "btn btn-primary">update</button></td>-->
+                            <td><a href="{% url 'studentd' m.id %}">
+                                <button type="button" class="btn btn-danger">Delete</button></td>
+                        </tr>
+                        {% endfor %}
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                </div>
+              </div>
+{% endblock %}
